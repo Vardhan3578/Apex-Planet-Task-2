@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Products Website</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        
+        .nav-menu {
+            background-color: #444;
+            padding: 1em;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .main-content {
+            padding: 2em;
+        }
+        
+        .product {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        /* Responsive Design */
+        @media only screen and (max-width: 768px) {
+            .nav-menu li {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Mobile Products Website</h1>
+    </div>
+    
+    <!-- Navigation Menu -->
+    <div class="nav-menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <h2>Our Products</h2>
+        <div id="products"></div>
+    </div>
+    
+    <!-- JavaScript Code -->
+    <script>
+        // Sample product data
+        var products = [
+            { id: 1, name: "Redmi Note 10 Pro Max", price: 19999, image: "https://m.media-amazon.com/images/I/514rF5FWrsL._AC_UY327_FMwebp_QL65_.jpg" },
+            { id: 2, name: "iQ Z10", price: 29999, image: "https://m.media-amazon.com/images/I/41gc4Ie5EgL._SX300_SY300_QL70_FMwebp_.jphttps://m.media-amazon.com/images/I/71IIxHUk3pL._AC_UY327_FMwebp_QL65_.jpg" },
+            { id: 3, name: "Realme P3 Pro", price: 39999, image: "https://m.media-amazon.com/images/I/41jpiuAGuqL._SX300_SY300_QL70_FMwebp_.jpg" }
+        ];
+        
+        // Function to display products
+        function displayProducts() {
+            var productHtml = "";
+            products.forEach(function(product) {
+                productHtml += `
+                    <div class="product">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p>Price: ₹${product.price}</p>
+                        <a href="#" onclick="buyProduct(${product.id})">Buy Now</a>
+                    </div>
+                `;
+            });
+            document.getElementById("products").innerHTML = productHtml;
+        }
+        
+        // Function to simulate buying a product
+        function buyProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            alert(`You have bought ${product.name} with ID ${productId}`);
+        }
+        
+        // Display products on page load
+        displayProducts();
+    </script>
+</body>
+</html>
+
